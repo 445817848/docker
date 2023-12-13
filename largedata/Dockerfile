@@ -40,7 +40,7 @@ RUN echo 'docker ALL=(ALL) NOPASSWD:ALL' | tee -a /etc/sudoers
 
 # Download and extract Hadoop
 ARG HADOOP_VERSION=3.3.6
-RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz \
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz \
     && tar -xzf hadoop-$HADOOP_VERSION.tar.gz -C /usr/local/ \
     && rm hadoop-$HADOOP_VERSION.tar.gz
 ENV HADOOP_HOME=/usr/local/hadoop-$HADOOP_VERSION
@@ -49,7 +49,7 @@ ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 # Download and extract Spark
 ARG SPARK_VERSION=3.5.0
 ARG HADOOP_COMPAT_VERSION=3
-RUN wget https://dlcdn.apache.org/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz \
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz \
     && tar -xzf spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz -C /usr/local/ \
     && rm spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz
 ENV SPARK_HOME=/usr/local/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION
