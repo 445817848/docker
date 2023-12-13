@@ -49,7 +49,7 @@ ENV PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 # Download and extract Spark
 ARG SPARK_VERSION=3.5.0
 ARG HADOOP_COMPAT_VERSION=3
-RUN wget https://mirrors.tuna.tsinghua.edu.cn/spache/park/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz \
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz \
     && tar -xzf spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz -C /usr/local/ \
     && rm spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION.tgz
 ENV SPARK_HOME=/usr/local/spark-$SPARK_VERSION-bin-hadoop$HADOOP_COMPAT_VERSION
